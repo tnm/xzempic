@@ -1,12 +1,17 @@
 function adjustFontWeight() {
   const primaryColumn = document.querySelector('[data-testid="primaryColumn"]');
   if (primaryColumn) {
-    const elements = primaryColumn.querySelectorAll('*');
-    elements.forEach(element => {
-      const computedStyle = window.getComputedStyle(element);
-      if (computedStyle.fontWeight === '700') {
-        element.style.fontWeight = '100';
-      }
+    // Select all tweet text elements
+    const tweetTextElements = primaryColumn.querySelectorAll('[data-testid="tweetText"]');
+    
+    tweetTextElements.forEach(tweetElement => {
+      const boldElements = tweetElement.querySelectorAll('*');
+      boldElements.forEach(element => {
+        const computedStyle = window.getComputedStyle(element);
+        if (computedStyle.fontWeight === '700') {
+          element.style.fontWeight = '100';
+        }
+      });
     });
   }
 }
@@ -26,5 +31,4 @@ observer.observe(document.body, {
   subtree: true
 });
 
-// Add event listener for navigation changes
 document.addEventListener('visibilitychange', adjustFontWeight);
