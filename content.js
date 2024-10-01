@@ -1,17 +1,18 @@
 function adjustFontWeight() {
-  const elements = document.querySelectorAll('*');
-  elements.forEach(element => {
-    const computedStyle = window.getComputedStyle(element);
-    if (computedStyle.fontWeight === '700') {
-      element.style.fontWeight = '100';
-    }
-  });
+  const primaryColumn = document.querySelector('[data-testid="primaryColumn"]');
+  if (primaryColumn) {
+    const elements = primaryColumn.querySelectorAll('*');
+    elements.forEach(element => {
+      const computedStyle = window.getComputedStyle(element);
+      if (computedStyle.fontWeight === '700') {
+        element.style.fontWeight = '100';
+      }
+    });
+  }
 }
 
-// Run the function when the page loads
 adjustFontWeight();
 
-// Use a MutationObserver to handle dynamically loaded content
 const observer = new MutationObserver(mutations => {
   mutations.forEach(mutation => {
     if (mutation.type === 'childList') {
@@ -24,3 +25,6 @@ observer.observe(document.body, {
   childList: true,
   subtree: true
 });
+
+// Add event listener for navigation changes
+document.addEventListener('visibilitychange', adjustFontWeight);
