@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "xzempic",
   "version": "1.0",
   "description": "Adjusts font-weight:700 to font-weight:100 on x.com",
@@ -12,5 +12,6 @@
       "js": ["content.js"],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "action": {}
 }
