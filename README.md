@@ -1,5 +1,5 @@
 # xzempic
-Gets rid of the moronic font-weight on twitter
+Gets rid of the ugly font-weight on twitter
 
 ## Installation
 
